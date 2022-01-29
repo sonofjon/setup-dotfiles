@@ -60,6 +60,7 @@ fi
 
 # Bash
 
+echo
 read -n1 -p "Back up bash config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
@@ -102,6 +103,7 @@ fi
 
 # Git
 
+echo
 read -n1 -p "Back up git config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
@@ -114,6 +116,7 @@ if [ "$REPLY" == "y" ]; then
     set +x
 fi
 
+echo
 read -n1 -p "Link git config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
@@ -128,6 +131,7 @@ fi
 
 # Emacs
 
+echo
 read -n1 -p "Back up Emacs config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
@@ -140,6 +144,7 @@ if [ "$REPLY" == "y" ]; then
     set +x
 fi
 
+echo
 read -n1 -p "Link Emacs config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
@@ -152,4 +157,5 @@ if [ "$REPLY" == "y" ]; then
     set +x
 fi
 
+echo
 echo "Done!"
