@@ -133,9 +133,9 @@ if [ "$REPLY" == "y" ]; then
     
     set -x
     mv ~/.emacs.d/init.el ~/.emacs.d/init.el.bak
+    [ -f ~/.aspell.en.prepl ] && mv ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
+    [ -f ~/.aspell.en.pws ] && mv ~/.aspell.en.pws ~/.aspell.en.pws.bak
     set +x
-
-    echo "Warning: aspell support not set up"
 fi
 
 read -n1 -p "Link Emacs config files? (y/n): " && echo
@@ -145,9 +145,9 @@ if [ "$REPLY" == "y" ]; then
 
     set -x
     ln -s ~/dotfiles/config-emacs/init.el ~/.emacs.d/init.el
+    ln -s ~/dotfiles/config-aspell/.aspell.en.prepl ~/.aspell.en.prepl
+    ln -s ~/dotfiles/config-aspell/.aspell.en.pws ~/.aspell.en.pws
     set +x
-
-    echo "Warning: aspell support not set up"
 fi
 
 echo "Done!"
