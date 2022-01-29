@@ -66,13 +66,12 @@ if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
 
     set -x
-    [ -f ~/.profile ] && mv ~/.profile .profile.bak
-    [ -f ~/.bash_profile ] && mv ~/.bash_profile .bash_profile.bak
-    [ -f ~/.bashrc ] && mv ~/.bashrc .bashrc.bak
-    [ -f ~/.bash ] && mv ~/.bash_history .bash_history.bak
-    [ -f ~/.bash_aliases ] && mv ~/.bash_aliases .bash_aliases.bak
-    [ -f ~/.bash_prompt ] && mv ~/.bash_prompt .bash_prompt.bak
+    [ -f ~/.profile ] && mv -i ~/.profile .profile.bak
+    [ -f ~/.bash_profile ] && mv -i ~/.bash_profile .bash_profile.bak
+    [ -f ~/.bashrc ] && mv -i ~/.bashrc .bashrc.bak
     [ -f ~/.bash_history ] && mv -i ~/.bash_history .bash_history.bak
+    [ -f ~/.bash_aliases ] && mv -i ~/.bash_aliases .bash_aliases.bak
+    [ -f ~/.bash_prompt ] && mv -i ~/.bash_prompt .bash_prompt.bak
     set +x
 fi
 
@@ -109,9 +108,9 @@ if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
 
     set -x
-    [ -f ~/.gitconfig ] && mv ~/.gitconfig .gitconfig.bak
-    [ -f ~/.gitignore ] && mv ~/.gitignore .gitignore.bak
-    [ -f ~/.gitattributes ] && mv ~/.gitattributes .gitattributes.bak
+    [ -f ~/.gitconfig ] && mv -i ~/.gitconfig .gitconfig.bak
+    [ -f ~/.gitignore ] && mv -i ~/.gitignore .gitignore.bak
+    [ -f ~/.gitattributes ] && mv -i ~/.gitattributes .gitattributes.bak
     set +x
 fi
 
@@ -135,9 +134,9 @@ if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
     
     set -x
-    [ -f ~/.emacs.d/init.el ] && mv ~/.emacs.d/init.el ~/.emacs.d/init.el.bak
-    [ -f ~/.aspell.en.prepl ] && mv ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
-    [ -f ~/.aspell.en.pws ] && mv ~/.aspell.en.pws ~/.aspell.en.pws.bak
+    [ -f ~/.emacs.d/init.el ] && mv -i ~/.emacs.d/init.el ~/.emacs.d/init.el.bak
+    [ -f ~/.aspell.en.prepl ] && mv -i ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
+    [ -f ~/.aspell.en.pws ] && mv -i ~/.aspell.en.pws ~/.aspell.en.pws.bak
     set +x
 fi
 
