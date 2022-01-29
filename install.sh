@@ -2,15 +2,13 @@
 
 # GitHub
 
-echo -n "Clone repos? (y/n): "
-read selection
+read -n1 -p "Clone repos? (y/n): " && echo
 
-if [ "$selection" == "y" ]; then
+if [ "$REPLY" == "y" ]; then
     cd ~/dotfiles
     
-    echo -n "Bash? (y/n): "
-    read selection
-    if [ "$selection" == "y" ]; then
+    read -n1 -p "Bash? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
         git clone git@github.com:sonofjon/config-bash.git
         git clone git@github.com:sonofjon/bash-history.git
@@ -18,18 +16,16 @@ if [ "$selection" == "y" ]; then
         echo "Skipping..."      
     fi
 
-    echo -n "Git? (y/n): "
-    read selection
-    if [ "$selection" == "y" ]; then
+    read -n1 -p "Git? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
         git clone git@github.com:sonofjon/config-git.git
     else
         echo "Skipping..."      
     fi
 
-    echo -n "Emacs? (y/n): "
-    read selection
-    if [ "$selection" == "y" ]; then
+    read -n1 -p "Emacs? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
         git clone git@github.com:sonofjon/config-emacs.git
         git clone git@github.com:sonofjon/config-aspell.git
@@ -37,25 +33,22 @@ if [ "$selection" == "y" ]; then
         echo "Skipping..."      
     fi
 
-    echo -n "X? (y/n): "
-    read selection
-    if [ "$selection" == "y" ]; then
+    read -n1 -p "X? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-x.git
     else
         echo "Skipping..."      
     fi
 
-    echo -n "WSL? (y/n): "
-    read selection
-    if [ "$selection" == "y" ]; then
+    read -n1 -p "WSL? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-wsl.git
     else
         echo "Skipping..."      
     fi
 
-    echo -n "Windows? (y/n): "
-    read selection
-    if [ "$selection" == "y" ]; then
+    read -n1 -p "Windows? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-windows.git
     else
         echo "Skipping..."      
@@ -66,10 +59,9 @@ fi
 
 # Bash
 
-echo -n "Back up bash config files? (y/n): "
-read selection
+read -n1 -p "Back up bash config files? (y/n): " && echo
 
-if [ "$selection" == "y" ]; then
+if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
 
     set -x
@@ -81,10 +73,9 @@ if [ "$selection" == "y" ]; then
     set +x
 fi
 
-echo -n "Link bash config files? (y/n): "
-read selection
+read -n1 -p "Link bash config files? (y/n): " && echo
 
-if [ "$selection" == "y" ]; then
+if [ "$REPLY" == "y" ]; then
     echo "Linking..."
 
     set -x
@@ -100,10 +91,9 @@ fi
 
 # Git
 
-echo -n "Back up git config files? (y/n): "
-read selection
+read -n1 -p "Back up git config files? (y/n): " && echo
 
-if [ "$selection" == "y" ]; then
+if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
 
     set -x
@@ -113,10 +103,9 @@ if [ "$selection" == "y" ]; then
     set +x
 fi
 
-echo -n "Link git config files? (y/n): "
-read selection
+read -n1 -p "Link git config files? (y/n): " && echo
 
-if [ "$selection" == "y" ]; then
+if [ "$REPLY" == "y" ]; then
     echo "Linking..."
 
     set -x
@@ -128,10 +117,9 @@ fi
 
 # Emacs
 
-echo -n "Back up Emacs config files? (y/n): "
-read selection
+read -n1 -p "Back up Emacs config files? (y/n): " && echo
 
-if [ "$selection" == "y" ]; then
+if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
     
     set -x
@@ -141,10 +129,9 @@ if [ "$selection" == "y" ]; then
     echo "Warning: aspell support not set up"
 fi
 
-echo -n "Link Emacs config files? (y/n): "
-read selection
+read -n1 -p "Link Emacs config files? (y/n): " && echo
 
-if [ "$selection" == "y" ]; then
+if [ "$REPLY" == "y" ]; then
     echo "Linking..."
 
     set -x
