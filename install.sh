@@ -65,11 +65,11 @@ if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
 
     set -x
-    mv ~/.profile .profile.bak
-    mv ~/.bashrc .bashrc.bak
-    mv ~/.bash_history .bash_history.bak
-    # mv ~/.bash_aliases .bash_aliases.bak
-    # mv ~/.bash_prompt .bash_prompt.bak
+    [ -f ~/.profile ] && mv ~/.profile .profile.bak
+    [ -f ~/.bashrc ] && mv ~/.bashrc .bashrc.bak
+    [ -f ~/.bash ] && mv ~/.bash_history .bash_history.bak
+    [ -f ~/.bash_aliases ] && mv ~/.bash_aliases .bash_aliases.bak
+    [ -f ~/.bash_prompt ] && mv ~/.bash_prompt .bash_prompt.bak
     set +x
 fi
 
@@ -106,9 +106,9 @@ if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
 
     set -x
-    mv ~/.gitconfig .gitconfig.bak
-    mv ~/.gitignore .gitignore.bak
-    mv ~/.gitattributes .gitattributes.bak
+    [ -f ~/.gitconfig ] && mv ~/.gitconfig .gitconfig.bak
+    [ -f ~/.gitignore ] && mv ~/.gitignore .gitignore.bak
+    [ -f ~/.gitattributes ] && mv ~/.gitattributes .gitattributes.bak
     set +x
 fi
 
@@ -132,7 +132,7 @@ if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
     
     set -x
-    mv ~/.emacs.d/init.el ~/.emacs.d/init.el.bak
+    [ -f ~/.emacs.d/init.el ] && mv ~/.emacs.d/init.el ~/.emacs.d/init.el.bak
     [ -f ~/.aspell.en.prepl ] && mv ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
     [ -f ~/.aspell.en.pws ] && mv ~/.aspell.en.pws ~/.aspell.en.pws.bak
     set +x
