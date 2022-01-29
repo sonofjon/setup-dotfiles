@@ -67,6 +67,7 @@ if [ "$REPLY" == "y" ]; then
 
     set -x
     [ -f ~/.profile ] && mv ~/.profile .profile.bak
+    [ -f ~/.bash_profile ] && mv ~/.bash_profile .bash_profile.bak
     [ -f ~/.bashrc ] && mv ~/.bashrc .bashrc.bak
     [ -f ~/.bash ] && mv ~/.bash_history .bash_history.bak
     [ -f ~/.bash_aliases ] && mv ~/.bash_aliases .bash_aliases.bak
