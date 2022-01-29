@@ -7,14 +7,14 @@ read -n1 -p "Clone repos? (y/n): " && echo
 if [ "$REPLY" == "y" ]; then
     set current_dir = $PWD
     cd ~/dotfiles
-    
+
     read -n1 -p "Bash? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
         git clone git@github.com:sonofjon/config-bash.git
         git clone git@github.com:sonofjon/bash-history.git
     else
-        echo "  Skipping..."      
+        echo "  Skipping..."
     fi
 
     read -n1 -p "Git? (y/n): " && echo
@@ -22,7 +22,7 @@ if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
         git clone git@github.com:sonofjon/config-git.git
     else
-        echo "  Skipping..."      
+        echo "  Skipping..."
     fi
 
     read -n1 -p "Emacs? (y/n): " && echo
@@ -31,28 +31,28 @@ if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-emacs.git
         git clone git@github.com:sonofjon/config-aspell.git
     else
-        echo "  Skipping..."      
+        echo "  Skipping..."
     fi
 
     read -n1 -p "X? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-x.git
     else
-        echo "  Skipping..."      
+        echo "  Skipping..."
     fi
 
     read -n1 -p "WSL? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-wsl.git
     else
-        echo "  Skipping..."      
+        echo "  Skipping..."
     fi
 
     read -n1 -p "Windows? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-windows.git
     else
-        echo "  Skipping..."      
+        echo "  Skipping..."
     fi
 
     cd $current_dir
@@ -136,7 +136,7 @@ read -n1 -p "Back up Emacs config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
-    
+
     set -x
     [ -f ~/.emacs.d/init.el ] && mv -i ~/.emacs.d/init.el ~/.emacs.d/init.el.bak
     [ -f ~/.aspell.en.prepl ] && mv -i ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
