@@ -86,7 +86,16 @@ if [ "$REPLY" == "y" ]; then
     ln -s ~/dotfiles/bash-history/.bash_prompt ~/.bash_prompt
     set +x
 
-    echo "Warning: .bashrc_local support not set up"
+    read -n1 -p "Linux or Mac? (l/m): " && echo
+    if [ "$REPLY" == "l" ]; then
+        set -x
+        ln -s ~/dotfiles/config-bash/.bashrc_linux ~/.bashrc_local
+        set +x
+    elif [ "$REPLY" == "m" ]; then
+        set -x
+        ln -s ~/dotfiles/config-bash/.bashrc_mac ~/.bashrc_local
+        set +x
+    fi
 fi
 
 # Git
