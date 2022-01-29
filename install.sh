@@ -5,7 +5,7 @@
 read -n1 -p "Clone repos? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
-    current_dir = $PWD
+    set current_dir = $PWD
     cd ~/dotfiles
     
     read -n1 -p "Bash? (y/n): " && echo
@@ -72,6 +72,7 @@ if [ "$REPLY" == "y" ]; then
     [ -f ~/.bash ] && mv ~/.bash_history .bash_history.bak
     [ -f ~/.bash_aliases ] && mv ~/.bash_aliases .bash_aliases.bak
     [ -f ~/.bash_prompt ] && mv ~/.bash_prompt .bash_prompt.bak
+    [ -f ~/.bash_history ] && mv -i ~/.bash_history .bash_history.bak
     set +x
 fi
 
