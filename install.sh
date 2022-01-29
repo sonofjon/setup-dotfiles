@@ -5,6 +5,7 @@
 read -n1 -p "Clone repos? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
+    current_dir = $PWD
     cd ~/dotfiles
     
     read -n1 -p "Bash? (y/n): " && echo
@@ -54,7 +55,7 @@ if [ "$REPLY" == "y" ]; then
         echo "Skipping..."      
     fi
 
-    cd -
+    cd $current_dir
 fi
 
 # Bash
