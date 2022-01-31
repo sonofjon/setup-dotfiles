@@ -157,5 +157,29 @@ if [ "$REPLY" == "y" ]; then
     set +x
 fi
 
+# Vim
+
+echo
+read -n1 -p "Back up Vim config files? (y/n): " && echo
+
+if [ "$REPLY" == "y" ]; then
+    echo "Backing up..."
+
+    set -x
+    [ -f ~/.vimrc ] && mv -i ~/.vimrc ~/.vimrc.bak
+    set +x
+fi
+
+echo
+read -n1 -p "Link Vim config files? (y/n): " && echo
+
+if [ "$REPLY" == "y" ]; then
+    echo "Linking..."
+
+    set -x
+    ln -s ~/dotfiles/config-vim/.vimrc ~/.vimrc
+    set +x
+fi
+
 echo
 echo "Done!"
