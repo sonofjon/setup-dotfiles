@@ -70,9 +70,9 @@ if [ "$REPLY" == "y" ]; then
     [ -f ~/.profile ] && mv -i ~/.profile .profile.bak
     [ -f ~/.bash_profile ] && mv -i ~/.bash_profile .bash_profile.bak
     [ -f ~/.bashrc ] && mv -i ~/.bashrc .bashrc.bak
-    [ -f ~/.bash_history ] && mv -i ~/.bash_history .bash_history.bak
     [ -f ~/.bash_aliases ] && mv -i ~/.bash_aliases .bash_aliases.bak
     [ -f ~/.bash_prompt ] && mv -i ~/.bash_prompt .bash_prompt.bak
+    [ -f ~/.bash_history ] && mv -i ~/.bash_history .bash_history.bak
     set +x
 fi
 
@@ -84,9 +84,9 @@ if [ "$REPLY" == "y" ]; then
     set -x
     ln -s ~/dotfiles/config-bash/.profile ~/.profile
     ln -s ~/dotfiles/config-bash/.bashrc ~/.bashrc
-    ln -s ~/dotfiles/bash-history/.bash_history ~/.bash_history
     ln -s ~/dotfiles/config-bash/.bash_aliases ~/.bash_aliases
-    ln -s ~/dotfiles/bash-history/.bash_prompt ~/.bash_prompt
+    ln -s ~/dotfiles/config-bash/.bash_prompt ~/.bash_prompt
+    ln -s ~/dotfiles/bash-history/.bash_history ~/.bash_history
     set +x
 
     read -n1 -p "Linux or Mac? (l/m): " && echo
