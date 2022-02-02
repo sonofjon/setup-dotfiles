@@ -6,6 +6,7 @@ read -n1 -p "Clone repos? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
     set current_dir = $PWD
+    [ -d ~/dotfiles ] || mkdir ~/dotfiles
     cd ~/dotfiles
 
     read -n1 -p "Bash? (y/n): " && echo
