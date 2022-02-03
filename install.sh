@@ -35,6 +35,14 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    read -n1 -p "Vim? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+        echo "Cloning..."
+        git clone git@github.com:sonofjon/config-vim.git
+    else
+        echo "  Skipping..."
+    fi
+
     read -n1 -p "X? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-x.git
