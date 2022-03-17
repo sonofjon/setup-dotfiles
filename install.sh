@@ -147,7 +147,7 @@ if [ "$REPLY" == "y" ]; then
     echo "Backing up..."
 
     set -x
-    [ -f ~/.emacs.d/init.el ] && mv -i ~/.emacs.d/init.el ~/.emacs.d/init.el.bak
+    [ -d ~/.emacs.d ] && mv -i ~/.emacs.d ~/.emacs.d.bak && mkdir ~/.emacs.d
     [ -f ~/.aspell.en.prepl ] && mv -i ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
     [ -f ~/.aspell.en.pws ] && mv -i ~/.aspell.en.pws ~/.aspell.en.pws.bak
     set +x
