@@ -174,6 +174,8 @@ if [ "$REPLY" == "y" ]; then
             ln -s ~/dotfiles/config-bash/.bashrc_mac ~/.bashrc_local
             set +x
 	fi
+
+        echo "Warning: Distribution specific Bash files must be linked manually!"
     else
         echo "  Skipping..."
     fi
