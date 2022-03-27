@@ -9,6 +9,7 @@ if [ "$REPLY" == "y" ]; then
     [ -d ~/dotfiles ] || mkdir ~/dotfiles
     cd ~/dotfiles
 
+    # Bash
     read -n1 -p "Bash? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
@@ -18,6 +19,7 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # Git
     read -n1 -p "Git? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
@@ -26,6 +28,7 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # Emacs
     read -n1 -p "Emacs? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
@@ -35,6 +38,7 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # Vim
     read -n1 -p "Vim? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         echo "Cloning..."
@@ -43,6 +47,7 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # X
     read -n1 -p "X? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-x.git
@@ -50,6 +55,7 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # WSL
     read -n1 -p "WSL? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-wsl.git
@@ -57,6 +63,7 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # Windows
     read -n1 -p "Windows? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-windows.git
