@@ -50,6 +50,7 @@ if [ "$REPLY" == "y" ]; then
     # X
     read -n1 -p "X? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
+        echo "Cloning..."
         git clone git@github.com:sonofjon/config-x.git
     else
         echo "  Skipping..."
@@ -58,6 +59,7 @@ if [ "$REPLY" == "y" ]; then
     # WSL
     read -n1 -p "WSL? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
+        echo "Cloning..."
         git clone git@github.com:sonofjon/config-wsl.git
     else
         echo "  Skipping..."
@@ -66,6 +68,7 @@ if [ "$REPLY" == "y" ]; then
     # Windows
     read -n1 -p "Windows? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
+        echo "Cloning..."
         git clone git@github.com:sonofjon/config-windows.git
     else
         echo "  Skipping..."
