@@ -77,128 +77,151 @@ if [ "$REPLY" == "y" ]; then
     cd $current_dir
 fi
 
-# Bash
+# Backup
 
 echo
-read -n1 -p "Back up bash config files? (y/n): " && echo
+read -n1 -p "Back up config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
-    echo "Backing up..."
 
-    set -x
-    [ -f ~/.profile ] && mv -i ~/.profile .profile.bak
-    [ -f ~/.bash_profile ] && mv -i ~/.bash_profile .bash_profile.bak
-    [ -f ~/.bashrc ] && mv -i ~/.bashrc .bashrc.bak
-    [ -f ~/.bash_aliases ] && mv -i ~/.bash_aliases .bash_aliases.bak
-    [ -f ~/.bash_prompt ] && mv -i ~/.bash_prompt .bash_prompt.bak
-    [ -f ~/.bash_history ] && mv -i ~/.bash_history .bash_history.bak
-    set +x
-fi
+    # Bash
+    read -n1 -p "Bash? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+    
+	set -x
+	[ -f ~/.profile ] && mv -i ~/.profile .profile.bak
+	[ -f ~/.bash_profile ] && mv -i ~/.bash_profile .bash_profile.bak
+	[ -f ~/.bashrc ] && mv -i ~/.bashrc .bashrc.bak
+	[ -f ~/.bash_aliases ] && mv -i ~/.bash_aliases .bash_aliases.bak
+	[ -f ~/.bash_prompt ] && mv -i ~/.bash_prompt .bash_prompt.bak
+	[ -f ~/.bash_history ] && mv -i ~/.bash_history .bash_history.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
 
-read -n1 -p "Link bash config files? (y/n): " && echo
 
-if [ "$REPLY" == "y" ]; then
-    echo "Linking..."
+    # Git
+    read -n1 -p "Git? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
 
-    set -x
-    ln -s ~/dotfiles/config-bash/.profile ~/.profile
-    ln -s ~/dotfiles/config-bash/.bashrc ~/.bashrc
-    ln -s ~/dotfiles/config-bash/.bash_aliases ~/.bash_aliases
-    ln -s ~/dotfiles/config-bash/.bash_prompt ~/.bash_prompt
-    ln -s ~/dotfiles/bash-history/.bash_history ~/.bash_history
-    set +x
+	set -x
+	[ -f ~/.gitconfig ] && mv -i ~/.gitconfig .gitconfig.bak
+	[ -f ~/.gitignore ] && mv -i ~/.gitignore .gitignore.bak
+	[ -f ~/.gitattributes ] && mv -i ~/.gitattributes .gitattributes.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
 
-    read -n1 -p "Linux or Mac? (l/m): " && echo
-    if [ "$REPLY" == "l" ]; then
-        set -x
-        ln -s ~/dotfiles/config-bash/.bashrc_linux ~/.bashrc_local
-        set +x
-    elif [ "$REPLY" == "m" ]; then
-        set -x
-        ln -s ~/dotfiles/config-bash/.bashrc_mac ~/.bashrc_local
-        set +x
+    # Emacs
+    read -n1 -p "Emacs? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -d ~/.emacs.d ] && mv -i ~/.emacs.d ~/.emacs.d.bak && mkdir ~/.emacs.d
+	[ -f ~/.aspell.en.prepl ] && mv -i ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
+	[ -f ~/.aspell.en.pws ] && mv -i ~/.aspell.en.pws ~/.aspell.en.pws.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # Vim
+    read -n1 -p "Vim? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -f ~/.vimrc ] && mv -i ~/.vimrc ~/.vimrc.bak
+	set +x
+    else
+        echo "  Skipping..."
     fi
 fi
 
-# Git
+# Link
 
 echo
-read -n1 -p "Back up git config files? (y/n): " && echo
+read -n1 -p "Link config files? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
-    echo "Backing up..."
 
-    set -x
-    [ -f ~/.gitconfig ] && mv -i ~/.gitconfig .gitconfig.bak
-    [ -f ~/.gitignore ] && mv -i ~/.gitignore .gitignore.bak
-    [ -f ~/.gitattributes ] && mv -i ~/.gitattributes .gitattributes.bak
-    set +x
+    # Bash
+    read -n1 -p "Bash? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Linking..."
+
+	set -x
+	ln -s ~/dotfiles/config-bash/.profile ~/.profile
+	ln -s ~/dotfiles/config-bash/.bashrc ~/.bashrc
+	ln -s ~/dotfiles/config-bash/.bash_aliases ~/.bash_aliases
+	ln -s ~/dotfiles/config-bash/.bash_prompt ~/.bash_prompt
+	ln -s ~/dotfiles/bash-history/.bash_history ~/.bash_history
+	set +x
+
+	read -n1 -p "  Linux or Mac? (l/m): " && echo
+	if [ "$REPLY" == "l" ]; then
+            set -x
+            ln -s ~/dotfiles/config-bash/.bashrc_linux ~/.bashrc_local
+            set +x
+	elif [ "$REPLY" == "m" ]; then
+            set -x
+            ln -s ~/dotfiles/config-bash/.bashrc_mac ~/.bashrc_local
+            set +x
+	fi
+    else
+        echo "  Skipping..."
+    fi
+
+    # Git
+    read -n1 -p "Git? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Linking..."
+
+	set -x
+	ln -s ~/dotfiles/config-git/.gitconfig ~/.gitconfig
+	ln -s ~/dotfiles/config-git/.gitignore ~/.gitignore
+	ln -s ~/dotfiles/config-git/.gitattributes ~/.gitattributes
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+
+    # Emacs
+    read -n1 -p "Emacs? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Linking..."
+
+	set -x
+	ln -s ~/dotfiles/config-emacs/init.el ~/.emacs.d/init.el
+	ln -s ~/dotfiles/config-aspell/.aspell.en.prepl ~/.aspell.en.prepl
+	ln -s ~/dotfiles/config-aspell/.aspell.en.pws ~/.aspell.en.pws
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # Vim
+    read -n1 -p "Vim? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Linking..."
+
+	set -x
+	ln -s ~/dotfiles/config-vim/.vimrc ~/.vimrc
+	set +x
+    else
+        echo "  Skipping..."
+    fi
 fi
-
-echo
-read -n1 -p "Link git config files? (y/n): " && echo
-
-if [ "$REPLY" == "y" ]; then
-    echo "Linking..."
-
-    set -x
-    ln -s ~/dotfiles/config-git/.gitconfig ~/.gitconfig
-    ln -s ~/dotfiles/config-git/.gitignore ~/.gitignore
-    ln -s ~/dotfiles/config-git/.gitattributes ~/.gitattributes
-    set +x
-fi
-
-# Emacs
-
-echo
-read -n1 -p "Back up Emacs config files? (y/n): " && echo
-
-if [ "$REPLY" == "y" ]; then
-    echo "Backing up..."
-
-    set -x
-    [ -d ~/.emacs.d ] && mv -i ~/.emacs.d ~/.emacs.d.bak && mkdir ~/.emacs.d
-    [ -f ~/.aspell.en.prepl ] && mv -i ~/.aspell.en.prepl ~/.aspell.en.prepl.bak
-    [ -f ~/.aspell.en.pws ] && mv -i ~/.aspell.en.pws ~/.aspell.en.pws.bak
-    set +x
-fi
-
-echo
-read -n1 -p "Link Emacs config files? (y/n): " && echo
-
-if [ "$REPLY" == "y" ]; then
-    echo "Linking..."
-
-    set -x
-    ln -s ~/dotfiles/config-emacs/init.el ~/.emacs.d/init.el
-    ln -s ~/dotfiles/config-aspell/.aspell.en.prepl ~/.aspell.en.prepl
-    ln -s ~/dotfiles/config-aspell/.aspell.en.pws ~/.aspell.en.pws
-    set +x
-fi
-
-# Vim
-
-echo
-read -n1 -p "Back up Vim config files? (y/n): " && echo
-
-if [ "$REPLY" == "y" ]; then
-    echo "Backing up..."
-
-    set -x
-    [ -f ~/.vimrc ] && mv -i ~/.vimrc ~/.vimrc.bak
-    set +x
-fi
-
-echo
-read -n1 -p "Link Vim config files? (y/n): " && echo
-
-if [ "$REPLY" == "y" ]; then
-    echo "Linking..."
-
-    set -x
-    ln -s ~/dotfiles/config-vim/.vimrc ~/.vimrc
-    set +x
-fi
-
+    
 echo
 echo "Done!"
