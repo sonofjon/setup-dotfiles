@@ -134,6 +134,19 @@ if [ "$REPLY" == "y" ]; then
     else
         echo "  Skipping..."
     fi
+
+    # X
+    read -n1 -p "X? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -f ~/.Xresources ] && mv -i ~/.Xresources ~/.Xresources.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
 fi
 
 # Link
@@ -216,6 +229,20 @@ if [ "$REPLY" == "y" ]; then
     else
         echo "  Skipping..."
     fi
+
+    # X
+    read -n1 -p "X? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Linking..."
+
+	set -x
+	ln -s ~/dotfiles/config-x/.Xresources ~/.Xresources
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
 fi
     
 echo
