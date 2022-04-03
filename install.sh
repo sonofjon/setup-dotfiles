@@ -12,7 +12,6 @@ if [ "$REPLY" == "y" ]; then
     # Bash
     read -n1 -p "Bash? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
-        echo "Cloning..."
         git clone git@github.com:sonofjon/config-bash.git
         git clone git@github.com:sonofjon/bash-history.git
     else
@@ -22,7 +21,6 @@ if [ "$REPLY" == "y" ]; then
     # Git
     read -n1 -p "Git? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
-        echo "Cloning..."
         git clone git@github.com:sonofjon/config-git.git
     else
         echo "  Skipping..."
@@ -31,7 +29,6 @@ if [ "$REPLY" == "y" ]; then
     # Emacs
     read -n1 -p "Emacs? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
-        echo "Cloning..."
         git clone git@github.com:sonofjon/config-emacs.git
         git clone git@github.com:sonofjon/config-aspell.git
     else
@@ -41,7 +38,6 @@ if [ "$REPLY" == "y" ]; then
     # Vim
     read -n1 -p "Vim? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
-        echo "Cloning..."
         git clone git@github.com:sonofjon/config-vim.git
     else
         echo "  Skipping..."
@@ -50,7 +46,6 @@ if [ "$REPLY" == "y" ]; then
     # X
     read -n1 -p "X? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
-        echo "Cloning..."
         git clone git@github.com:sonofjon/config-x.git
     else
         echo "  Skipping..."
@@ -59,7 +54,6 @@ if [ "$REPLY" == "y" ]; then
     # WSL
     read -n1 -p "WSL? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
-        echo "Cloning..."
         git clone git@github.com:sonofjon/config-wsl.git
     else
         echo "  Skipping..."
@@ -68,7 +62,6 @@ if [ "$REPLY" == "y" ]; then
     # Windows
     read -n1 -p "Windows? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
-        echo "Cloning..."
         git clone git@github.com:sonofjon/config-windows.git
     else
         echo "  Skipping..."
