@@ -210,6 +210,7 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	ln -s ~/dotfiles/config-emacs/init.el ~/.emacs.d/init.el
+	ln -s ~/dotfiles/config-emacs/abbrev_defs ~/.emacs.d/abbrev_defs
 	ln -s ~/dotfiles/config-aspell/.aspell.en.prepl ~/.aspell.en.prepl
 	ln -s ~/dotfiles/config-aspell/.aspell.en.pws ~/.aspell.en.pws
 	set +x
