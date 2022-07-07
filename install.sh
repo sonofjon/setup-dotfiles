@@ -213,6 +213,7 @@ if [ "$REPLY" == "y" ]; then
 	set -x
 	[ ! -d ~/.emacs.d ] && mkdir ~/.emacs.d
 	ln -s ~/dotfiles/config-emacs/init.el ~/.emacs.d/init.el
+	ln -s ~/dotfiles/config-emacs/early-init.el ~/.emacs.d/early-init.el
 	ln -s ~/dotfiles/config-emacs/abbrev_defs ~/.emacs.d/abbrev_defs
 	ln -s ~/dotfiles/config-emacs/dashboard-banner.txt ~/.emacs.d/dashboard-banner.txt
 	ln -s ~/dotfiles/config-aspell/.aspell.en.prepl ~/.aspell.en.prepl
