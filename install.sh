@@ -5,7 +5,7 @@
 read -n1 -p "Clone repos? (y/n): " && echo
 
 if [ "$REPLY" == "y" ]; then
-    set current_dir = $PWD
+    current_dir="$PWD"
     [ -d ~/dotfiles ] || mkdir ~/dotfiles
     cd ~/dotfiles
 
@@ -67,7 +67,7 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
-    cd $current_dir
+    cd "$current_dir"
 fi
 
 # Backup
