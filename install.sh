@@ -1,5 +1,8 @@
 #!/bin/bash
 
+PATH_POWERSHELL=/mnt/c/Users/sonof/Documents/WindowsPowerShell
+PATH_WINDOWS_TERMINAL=/mnt/c/Users/sonof/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState
+
 # GitHub
 
 read -n1 -p "Clone repos? (y/n): " && echo
@@ -67,6 +70,14 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # PowerShell
+    read -n1 -p "PowerShell? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+        git clone git@github.com:sonofjon/config-powershell.git
+    else
+        echo "  Skipping..."
+    fi
+
     cd "$current_dir" || exit
 fi
 
@@ -93,7 +104,6 @@ if [ "$REPLY" == "y" ]; then
     else
         echo "  Skipping..."
     fi
-
 
     # Git
     read -n1 -p "Git? (y/n): " && echo
@@ -149,6 +159,29 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # WSL
+    read -n1 -p "WSL? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -f $PATH_WINDOWS_TERMINAL/settings.json ] && mv -i $PATH_WINDOWS_TERMINAL/settings.json $PATH_WINDOWS_TERMINAL/settings.json.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # Windows
+    read -n1 -p "Windows? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -f $PATH_POWERSHELL/Microsoft.PowerShell_profile.ps1 ] && mv -i $PATH_POWERSHELL/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL/Microsoft.PowerShell_profile.ps1.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
 fi
 
 # Link
@@ -203,7 +236,6 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
-
     # Emacs
     read -n1 -p "Emacs? (y/n): " && echo
 
@@ -252,6 +284,32 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # WSL
+    read -n1 -p "WSL? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Copying..."
+
+	set -x
+	cp -f ~/dotfiles/config-wsl/LocalState/settings.json $PATH_WINDOWS_TERMINAL
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # Windows
+    read -n1 -p "Windows? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Copying..."
+
+	set -x
+	cp -f ~/dotfiles/config-powershell/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL
+	cp -f ~/projects/winget-apps/Install-AJ8Apps.psm1 $PATH_POWERSHELL
+	set +x
+    else
+        echo "  Skipping..."
+    fi
 fi
     
 echo
