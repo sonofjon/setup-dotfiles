@@ -94,12 +94,12 @@ if [ "$REPLY" == "y" ]; then
 	echo "Backing up..."
     
 	set -x
-	[ -f ~/.profile ] && mv -i ~/.profile .profile.bak
-	[ -f ~/.bash_profile ] && mv -i ~/.bash_profile .bash_profile.bak
-	[ -f ~/.bashrc ] && mv -i ~/.bashrc .bashrc.bak
-	[ -f ~/.bash_aliases ] && mv -i ~/.bash_aliases .bash_aliases.bak
-	[ -f ~/.bash_prompt ] && mv -i ~/.bash_prompt .bash_prompt.bak
-	[ -f ~/.bash_history ] && mv -i ~/.bash_history .bash_history.bak
+	[ -f ~/.profile ] && mv -i ~/.profile ~/.profile.bak
+	[ -f ~/.bash_profile ] && mv -i ~/.bash_profile ~/.bash_profile.bak
+	[ -f ~/.bashrc ] && mv -i ~/.bashrc ~/.bashrc.bak
+	[ -f ~/.bash_aliases ] && mv -i ~/.bash_aliases ~/.bash_aliases.bak
+	[ -f ~/.bash_prompt ] && mv -i ~/.bash_prompt ~/.bash_prompt.bak
+	[ -f ~/.bash_history ] && mv -i ~/.bash_history ~/.bash_history.bak
 	set +x
     else
         echo "  Skipping..."
@@ -111,9 +111,9 @@ if [ "$REPLY" == "y" ]; then
 	echo "Backing up..."
 
 	set -x
-	[ -f ~/.gitconfig ] && mv -i ~/.gitconfig .gitconfig.bak
-	[ -f ~/.gitignore ] && mv -i ~/.gitignore .gitignore.bak
-	[ -f ~/.gitattributes ] && mv -i ~/.gitattributes .gitattributes.bak
+	[ -f ~/.gitconfig ] && mv -i ~/.gitconfig ~/.gitconfig.bak
+	[ -f ~/.gitignore ] && mv -i ~/.gitignore ~/.gitignore.bak
+	[ -f ~/.gitattributes ] && mv -i ~/.gitattributes ~/.gitattributes.bak
 	set +x
     else
         echo "  Skipping..."
