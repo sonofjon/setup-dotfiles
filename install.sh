@@ -130,6 +130,7 @@ if [ "$REPLY" == "y" ]; then
 	[ -f ~/.aspell.en.pws ] && mv -i ~/.aspell.en.pws ~/.aspell.en.pws.bak
 	[ -f ~/.aspell.sv.prepl ] && mv -i ~/.aspell.sv.prepl ~/.aspell.sv.prepl.bak
 	[ -f ~/.aspell.sv.pws ] && mv -i ~/.aspell.sv.pws ~/.aspell.sv.pws.bak
+	[ -f ~/.hunspell_personal ] && mv -i ~/.hunspell_personal ~/.hunspell_personal.bak
 	set +x
     else
         echo "  Skipping..."
@@ -253,6 +254,7 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/config-aspell/.aspell.en.pws ~/.aspell.en.pws
 	ln -s ~/dotfiles/config-aspell/.aspell.sv.prepl ~/.aspell.sv.prepl
 	ln -s ~/dotfiles/config-aspell/.aspell.sv.pws ~/.aspell.sv.pws
+	ln -s ~/dotfiles/config-aspell/.hunspell_personal ~/.hunspell_personal
 	set +x
     else
         echo "  Skipping..."
