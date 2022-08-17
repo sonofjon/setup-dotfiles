@@ -33,7 +33,7 @@ if [ "$REPLY" == "y" ]; then
     read -n1 -p "Emacs? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-emacs.git
-        git clone git@github.com:sonofjon/config-aspell.git
+        git clone git@github.com:sonofjon/config-spelling.git
     else
         echo "  Skipping..."
     fi
@@ -250,11 +250,11 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/config-emacs/lisp ~/.emacs.d/lisp
 	ln -s ~/dotfiles/config-emacs/abbrev_defs ~/.emacs.d/abbrev_defs
 	ln -s ~/dotfiles/config-emacs/dashboard-banner.txt ~/.emacs.d/dashboard-banner.txt
-	ln -s ~/dotfiles/config-aspell/.aspell.en.prepl ~/.aspell.en.prepl
-	ln -s ~/dotfiles/config-aspell/.aspell.en.pws ~/.aspell.en.pws
-	ln -s ~/dotfiles/config-aspell/.aspell.sv.prepl ~/.aspell.sv.prepl
-	ln -s ~/dotfiles/config-aspell/.aspell.sv.pws ~/.aspell.sv.pws
-	ln -s ~/dotfiles/config-aspell/.hunspell_personal ~/.hunspell_personal
+	ln -s ~/dotfiles/config-spelling/.aspell.en.prepl ~/.aspell.en.prepl
+	ln -s ~/dotfiles/config-spelling/.aspell.en.pws ~/.aspell.en.pws
+	ln -s ~/dotfiles/config-spelling/.aspell.sv.prepl ~/.aspell.sv.prepl
+	ln -s ~/dotfiles/config-spelling/.aspell.sv.pws ~/.aspell.sv.pws
+	ln -s ~/dotfiles/config-spelling/.hunspell_personal ~/.hunspell_personal
 	set +x
     else
         echo "  Skipping..."
