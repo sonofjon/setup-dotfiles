@@ -292,8 +292,11 @@ if [ "$REPLY" == "y" ]; then
     if [ "$REPLY" == "y" ]; then
 	echo "Copying..."
 
+        [ -d ~/bin ] || mkdir ~/bin
+
 	set -x
 	cp -f ~/dotfiles/config-wsl/LocalState/settings.json $PATH_WINDOWS_TERMINAL
+	ln -s ~/dotfiles/config-wsl/backup.sh ~/bin/backup.sh
 	set +x
     else
         echo "  Skipping..."
