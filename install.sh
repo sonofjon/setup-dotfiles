@@ -293,6 +293,7 @@ if [ "$REPLY" == "y" ]; then
     if [ "$REPLY" == "y" ]; then
 	echo "Copying..."
 
+        [ -d $PATH_WINDOWS_TERMINAL ] || mkdir -p $PATH_WINDOWS_TERMINAL
         [ -d ~/bin ] || mkdir ~/bin
 
 	set -x
@@ -308,6 +309,8 @@ if [ "$REPLY" == "y" ]; then
 
     if [ "$REPLY" == "y" ]; then
 	echo "Copying..."
+
+        [ -d $PATH_POWERSHELL ] || mkdir -p $PATH_POWERSHELL
 
 	set -x
 	cp -f ~/dotfiles/config-powershell/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL
