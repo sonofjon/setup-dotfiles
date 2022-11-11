@@ -206,7 +206,7 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/bash-history/.bash_history ~/.bash_history
 	set +x
 
-	read -n1 -p "  Linux or Mac? (l/m): " && echo
+	read -n1 -p "  Linux, Mac or WSL? (l/m/w): " && echo
 	if [ "$REPLY" == "l" ]; then
             set -x
             ln -s ~/dotfiles/config-bash/.bashrc_linux ~/.bashrc_local
@@ -214,6 +214,10 @@ if [ "$REPLY" == "y" ]; then
 	elif [ "$REPLY" == "m" ]; then
             set -x
             ln -s ~/dotfiles/config-bash/.bashrc_mac ~/.bashrc_local
+            set +x
+	elif [ "$REPLY" == "w" ]; then
+            set -x
+            ln -s ~/dotfiles/config-bash/.bashrc_wsl ~/.bashrc_local
             set +x
 	fi
 
