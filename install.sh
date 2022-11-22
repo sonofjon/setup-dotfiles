@@ -78,6 +78,14 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # macOS
+    read -n1 -p "macOS? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+        git clone git@github.com:sonofjon/config-macos.git
+    else
+        echo "  Skipping..."
+    fi
+
     cd "$current_dir" || exit
 fi
 
