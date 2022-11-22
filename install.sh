@@ -54,18 +54,18 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
-    # WSL
-    read -n1 -p "WSL? (y/n): " && echo
-    if [ "$REPLY" == "y" ]; then
-        git clone git@github.com:sonofjon/config-wsl.git
-    else
-        echo "  Skipping..."
-    fi
-
     # Windows
     read -n1 -p "Windows? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
         git clone git@github.com:sonofjon/config-windows.git
+    else
+        echo "  Skipping..."
+    fi
+
+    # WSL
+    read -n1 -p "WSL? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+        git clone git@github.com:sonofjon/config-wsl.git
     else
         echo "  Skipping..."
     fi
@@ -299,6 +299,22 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # Windows
+    read -n1 -p "Windows? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Copying..."
+
+        [ -d $PATH_POWERSHELL ] || mkdir -p $PATH_POWERSHELL
+
+	set -x
+	cp -f ~/dotfiles/config-powershell/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL
+	cp -f ~/projects/winget-apps/Install-AJ8Apps.psm1 $PATH_POWERSHELL
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
     # WSL
     read -n1 -p "WSL? (y/n): " && echo
 
@@ -311,22 +327,6 @@ if [ "$REPLY" == "y" ]; then
 	set -x
 	cp -f ~/dotfiles/config-wsl/LocalState/settings.json $PATH_WINDOWS_TERMINAL
 	ln -s ~/dotfiles/config-wsl/backup.sh ~/bin/backup.sh
-	set +x
-    else
-        echo "  Skipping..."
-    fi
-
-    # Windows
-    read -n1 -p "Windows? (y/n): " && echo
-
-    if [ "$REPLY" == "y" ]; then
-	echo "Copying..."
-
-        [ -d $PATH_POWERSHELL ] || mkdir -p $PATH_POWERSHELL
-
-	set -x
-	cp -f ~/dotfiles/config-powershell/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL
-	cp -f ~/projects/winget-apps/Install-AJ8Apps.psm1 $PATH_POWERSHELL
 	set +x
     else
         echo "  Skipping..."
