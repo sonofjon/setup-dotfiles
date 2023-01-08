@@ -208,6 +208,7 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	ln -s ~/dotfiles/config-bash/.profile ~/.profile
+	# ln -s ~/.profile ~/.bash_profile
 	ln -s ~/dotfiles/config-bash/.bashrc ~/.bashrc
 	ln -s ~/dotfiles/config-bash/.bash_aliases ~/.bash_aliases
 	ln -s ~/dotfiles/config-bash/.bash_prompt ~/.bash_prompt
