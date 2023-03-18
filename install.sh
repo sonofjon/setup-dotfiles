@@ -311,7 +311,6 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	cp -f ~/dotfiles/config-powershell/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL
-	cp -f ~/projects/winget-apps/Install-AJ8Apps.psm1 $PATH_POWERSHELL
 	set +x
     else
         echo "  Skipping..."
