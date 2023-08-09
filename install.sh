@@ -336,3 +336,5 @@ fi
     
 echo
 echo "Done!"
+echo
+echo "Now consider cloning and running linux-apps, winget-apps, homebrew-apps, and/or node-setup."
