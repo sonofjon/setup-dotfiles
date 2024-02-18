@@ -230,6 +230,7 @@ if [ "$REPLY" == "y" ]; then
 	elif [ "$REPLY" == "w" ]; then
             set -x
             ln -s ~/dotfiles/config-bash/.bashrc_wsl ~/.bashrc_local
+            ln -s ~/dotfiles/config-bash/.profile_wsl ~/.profile_local
             set +x
 	fi
 
