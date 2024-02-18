@@ -107,6 +107,7 @@ if [ "$REPLY" == "y" ]; then
 	[ -f ~/.bash_profile ] && mv -i ~/.bash_profile ~/.bash_profile.bak
 	[ -f ~/.bashrc ] && mv -i ~/.bashrc ~/.bashrc.bak
 	[ -f ~/.bash_aliases ] && mv -i ~/.bash_aliases ~/.bash_aliases.bak
+	[ -f ~/.bash_logout ] && mv -i ~/.bash_logout ~/.bash_logout.bak
 	[ -f ~/.bash_prompt ] && mv -i ~/.bash_prompt ~/.bash_prompt.bak
 	[ -f ~/.bash_history ] && mv -i ~/.bash_history ~/.bash_history.bak
 	set +x
@@ -212,6 +213,7 @@ if [ "$REPLY" == "y" ]; then
 	# ln -s ~/.profile ~/.bash_profile
 	ln -s ~/dotfiles/config-bash/.bashrc ~/.bashrc
 	ln -s ~/dotfiles/config-bash/.bash_aliases ~/.bash_aliases
+	ln -s ~/dotfiles/config-bash/.bash_logout ~/.bash_logout
 	ln -s ~/dotfiles/config-bash/.bash_prompt ~/.bash_prompt
 	ln -s ~/dotfiles/bash-history/.bash_history ~/.bash_history
 	set +x
