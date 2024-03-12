@@ -1,8 +1,9 @@
 #!/bin/bash
 # shellcheck disable=SC2162
 
-PATH_POWERSHELL=/mnt/c/Users/sonof/Documents/WindowsPowerShell
-PATH_WINDOWS_TERMINAL=/mnt/c/Users/sonof/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState
+WINDOWS_USERNAME=$(cmd.exe /C "echo %USERNAME%" 2>/dev/null | tr -d '\r')   ; TODO: might fail on macOS and Linux?
+PATH_POWERSHELL=/mnt/c/Users/${WINDOWS_USERNAME}/Documents/WindowsPowerShell
+PATH_WINDOWS_TERMINAL=/mnt/c/Users/${WINDOWS_USERNAME}/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState
 
 # GitHub
 
