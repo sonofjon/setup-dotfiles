@@ -341,4 +341,4 @@ fi
 echo
 echo "Done!"
 echo
-echo "Now consider cloning and running linux-apps, winget-apps, homebrew-apps, and/or node-setup."
+echo "Now consider cloning and running apps-linux, apps-winget, apps-homebrew, setup-python and/or setup-node."
