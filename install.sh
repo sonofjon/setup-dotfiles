@@ -172,18 +172,6 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
-    # WSL
-    read -n1 -p "WSL? (y/n): " && echo
-    if [ "$REPLY" == "y" ]; then
-	echo "Backing up..."
-
-	set -x
-	[ -f $PATH_WINDOWS_TERMINAL/settings.json ] && mv -i $PATH_WINDOWS_TERMINAL/settings.json $PATH_WINDOWS_TERMINAL/settings.json.bak
-	set +x
-    else
-        echo "  Skipping..."
-    fi
-
     # Windows
     read -n1 -p "Windows? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
@@ -191,6 +179,18 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	[ -f $PATH_POWERSHELL/Microsoft.PowerShell_profile.ps1 ] && mv -i $PATH_POWERSHELL/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL/Microsoft.PowerShell_profile.ps1.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # WSL
+    read -n1 -p "WSL? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -f $PATH_WINDOWS_TERMINAL/settings.json ] && mv -i $PATH_WINDOWS_TERMINAL/settings.json $PATH_WINDOWS_TERMINAL/settings.json.bak
 	set +x
     else
         echo "  Skipping..."
