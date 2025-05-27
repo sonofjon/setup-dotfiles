@@ -1,2 +1,2 @@
 # dotfiles-setup
-Initiate dotfiles on Linux system
+Initialize dotfiles on Linux system
