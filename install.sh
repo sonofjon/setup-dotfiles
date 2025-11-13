@@ -223,16 +223,16 @@ if [ "$REPLY" == "y" ]; then
 	read -n1 -p "  Linux, Mac or WSL? (l/m/w): " && echo
 	if [ "$REPLY" == "l" ]; then
             set -x
-            ln -s ~/dotfiles/config-bash/.bashrc_linux ~/.bashrc_local
+            ln -s ~/dotfiles/config-bash/.bashrc_linux ~/.bashrc_system
             set +x
 	elif [ "$REPLY" == "m" ]; then
             set -x
-            ln -s ~/dotfiles/config-bash/.bashrc_mac ~/.bashrc_local
+            ln -s ~/dotfiles/config-bash/.bashrc_mac ~/.bashrc_system
             set +x
 	elif [ "$REPLY" == "w" ]; then
             set -x
-            ln -s ~/dotfiles/config-bash/.bashrc_wsl ~/.bashrc_local
-            ln -s ~/dotfiles/config-bash/.profile_wsl ~/.profile_local
+            ln -s ~/dotfiles/config-bash/.bashrc_wsl ~/.bashrc_system
+            ln -s ~/dotfiles/config-bash/.profile_wsl ~/.profile_system
             set +x
 	fi
 
