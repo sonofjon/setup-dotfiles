@@ -271,7 +271,6 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/config-emacs/data ~/.emacs.d/data
 	ln -s ~/dotfiles/config-emacs/abbrev_defs ~/.emacs.d/abbrev_defs
 	ln -s ~/dotfiles/config-emacs/bookmarks ~/.emacs.d/bookmarks
-	ln -s ~/dotfiles/config-emacs/dashboard-banner.txt ~/.emacs.d/dashboard-banner.txt
 	ln -s ~/dotfiles/config-spelling/.aspell.en.prepl ~/.aspell.en.prepl
 	ln -s ~/dotfiles/config-spelling/.aspell.en.pws ~/.aspell.en.pws
 	ln -s ~/dotfiles/config-spelling/.aspell.sv.prepl ~/.aspell.sv.prepl
