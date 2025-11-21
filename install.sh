@@ -123,7 +123,6 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	[ -f ~/.gitconfig ] && mv -i ~/.gitconfig ~/.gitconfig.bak
-	[ -f ~/.gitconfig.delta ] && mv -i ~/.gitconfig.delta ~/.gitconfig.delta.bak
 	[ -f ~/.gitignore ] && mv -i ~/.gitignore ~/.gitignore.bak
 	[ -f ~/.gitattributes ] && mv -i ~/.gitattributes ~/.gitattributes.bak
 	set +x
@@ -249,7 +248,6 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	ln -s ~/dotfiles/config-git/.gitconfig ~/.gitconfig
-	ln -s ~/dotfiles/config-git/.gitconfig.delta ~/.gitconfig.delta
 	ln -s ~/dotfiles/config-git/.gitignore ~/.gitignore
 	ln -s ~/dotfiles/config-git/.gitattributes ~/.gitattributes
 	set +x
