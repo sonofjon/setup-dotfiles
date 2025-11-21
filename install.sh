@@ -342,3 +342,5 @@ echo
 echo "Done!"
 echo
 echo "Now consider cloning and running apps-linux, apps-winget, apps-homebrew, setup-python and/or setup-node."
+echo
+echo "If this is a work computer, you must also link ~/projects/work/.gitconfig from the config-git project."
