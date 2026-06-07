@@ -217,6 +217,8 @@ if [ "$REPLY" == "y" ]; then
 	[ -f ~/.copilot/copilot-instructions.md ] && mv -i ~/.copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md.bak
 	[ -f ~/.copilot/mcp-config.json ] && mv -i ~/.copilot/mcp-config.json ~/.copilot/mcp-config.json.bak
 	[ -f ~/.copilot/settings.json ] && mv -i ~/.copilot/settings.json ~/.copilot/settings.json.bak
+	[ -f ~/.codex/AGENTS.md ] && mv -i ~/.codex/AGENTS.md ~/.codex/AGENTS.md.bak
+	[ -f ~/.codex/config.toml ] && mv -i ~/.codex/config.toml ~/.codex/config.toml.bak
 	set +x
     else
         echo "  Skipping..."
@@ -374,6 +376,7 @@ if [ "$REPLY" == "y" ]; then
 	[ -d ~/.claude ] || mkdir -p ~/.claude
 	[ -d ~/.gemini ] || mkdir -p ~/.gemini
 	[ -d ~/.copilot ] || mkdir -p ~/.copilot
+	[ -d ~/.codex ] || mkdir -p ~/.codex
 
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
 	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
@@ -383,6 +386,8 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/copilot-instructions.md
 	ln -s ~/dotfiles/config-ai/.copilot/mcp-config.json ~/.copilot/mcp-config.json
 	ln -s ~/dotfiles/config-ai/.copilot/settings.json ~/.copilot/settings.json
+	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.codex/AGENTS.md
+	ln -s ~/dotfiles/config-ai/.codex/config.toml ~/.codex/config.toml
 	set +x
     else
         echo "  Skipping..."
