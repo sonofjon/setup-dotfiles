@@ -212,14 +212,14 @@ if [ "$REPLY" == "y" ]; then
 	[ -f ~/.claude/CLAUDE.md ] && mv -i ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
 	[ -f ~/.claude/settings.json ] && mv -i ~/.claude/settings.json ~/.claude/settings.json.bak
 	[ -d ~/.claude/commands ] && mv -i ~/.claude/commands ~/.claude/commands.bak
-	[ -f ~/.gemini/GEMINI.md ] && mv -i ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.bak
-	[ -f ~/.gemini/settings.json ] && mv -i ~/.gemini/settings.json ~/.gemini/settings.json.bak
-	[ -d ~/.gemini/policies ] && mv -i ~/.gemini/policies ~/.gemini/policies.bak
+	[ -f ~/.codex/AGENTS.md ] && mv -i ~/.codex/AGENTS.md ~/.codex/AGENTS.md.bak
+	[ -f ~/.codex/config.toml ] && mv -i ~/.codex/config.toml ~/.codex/config.toml.bak
 	[ -f ~/.copilot/copilot-instructions.md ] && mv -i ~/.copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md.bak
 	[ -f ~/.copilot/mcp-config.json ] && mv -i ~/.copilot/mcp-config.json ~/.copilot/mcp-config.json.bak
 	[ -f ~/.copilot/settings.json ] && mv -i ~/.copilot/settings.json ~/.copilot/settings.json.bak
-	[ -f ~/.codex/AGENTS.md ] && mv -i ~/.codex/AGENTS.md ~/.codex/AGENTS.md.bak
-	[ -f ~/.codex/config.toml ] && mv -i ~/.codex/config.toml ~/.codex/config.toml.bak
+	[ -f ~/.gemini/GEMINI.md ] && mv -i ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.bak
+	[ -f ~/.gemini/settings.json ] && mv -i ~/.gemini/settings.json ~/.gemini/settings.json.bak
+	[ -d ~/.gemini/policies ] && mv -i ~/.gemini/policies ~/.gemini/policies.bak
 	set +x
     else
         echo "  Skipping..."
@@ -375,21 +375,21 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	[ -d ~/.claude ] || mkdir -p ~/.claude
-	[ -d ~/.gemini ] || mkdir -p ~/.gemini
-	[ -d ~/.copilot ] || mkdir -p ~/.copilot
 	[ -d ~/.codex ] || mkdir -p ~/.codex
+	[ -d ~/.copilot ] || mkdir -p ~/.copilot
+	[ -d ~/.gemini ] || mkdir -p ~/.gemini
 
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
 	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
 	ln -s ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
-	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.gemini/GEMINI.md
-	ln -s ~/dotfiles/config-ai/.gemini/settings.json ~/.gemini/settings.json
-	ln -s ~/dotfiles/config-ai/.gemini/policies ~/.gemini/policies
+	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.codex/AGENTS.md
+	ln -s ~/dotfiles/config-ai/.codex/config.toml ~/.codex/config.toml
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/copilot-instructions.md
 	ln -s ~/dotfiles/config-ai/.copilot/mcp-config.json ~/.copilot/mcp-config.json
 	ln -s ~/dotfiles/config-ai/.copilot/settings.json ~/.copilot/settings.json
-	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.codex/AGENTS.md
-	ln -s ~/dotfiles/config-ai/.codex/config.toml ~/.codex/config.toml
+	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.gemini/GEMINI.md
+	ln -s ~/dotfiles/config-ai/.gemini/settings.json ~/.gemini/settings.json
+	ln -s ~/dotfiles/config-ai/.gemini/policies ~/.gemini/policies
 	set +x
     else
         echo "  Skipping..."
