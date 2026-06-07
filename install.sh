@@ -88,6 +88,14 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # AI
+    read -n1 -p "AI? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+        git clone git@github.com:sonofjon/config-ai.git
+    else
+        echo "  Skipping..."
+    fi
+
     cd "$current_dir" || exit
 fi
 
@@ -190,6 +198,25 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	[ -f $PATH_WINDOWS_TERMINAL/settings.json ] && mv -i $PATH_WINDOWS_TERMINAL/settings.json $PATH_WINDOWS_TERMINAL/settings.json.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # AI
+    read -n1 -p "AI? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -f ~/.claude/CLAUDE.md ] && mv -i ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
+	[ -f ~/.claude/settings.json ] && mv -i ~/.claude/settings.json ~/.claude/settings.json.bak
+	[ -d ~/.claude/commands ] && mv -i ~/.claude/commands ~/.claude/commands.bak
+	[ -f ~/.gemini/settings.json ] && mv -i ~/.gemini/settings.json ~/.gemini/settings.json.bak
+	[ -d ~/.gemini/policies ] && mv -i ~/.gemini/policies ~/.gemini/policies.bak
+	[ -f ~/.copilot/copilot-instructions.md ] && mv -i ~/.copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md.bak
+	[ -f ~/.copilot/mcp-config.json ] && mv -i ~/.copilot/mcp-config.json ~/.copilot/mcp-config.json.bak
+	[ -f ~/.copilot/settings.json ] && mv -i ~/.copilot/settings.json ~/.copilot/settings.json.bak
 	set +x
     else
         echo "  Skipping..."
@@ -332,6 +359,30 @@ if [ "$REPLY" == "y" ]; then
 	set -x
 	cp -f ~/dotfiles/config-wsl/LocalState/settings.json $PATH_WINDOWS_TERMINAL
 	ln -s ~/dotfiles/config-backup/wsl/backup.sh ~/bin/backup.sh
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # AI
+    read -n1 -p "AI? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Linking..."
+
+        [ -d ~/.claude ] || mkdir -p ~/.claude
+        [ -d ~/.gemini ] || mkdir -p ~/.gemini
+        [ -d ~/.copilot ] || mkdir -p ~/.copilot
+
+	set -x
+	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
+	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
+	ln -s ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
+	ln -s ~/dotfiles/config-ai/.gemini/settings.json ~/.gemini/settings.json
+	ln -s ~/dotfiles/config-ai/.gemini/policies ~/.gemini/policies
+	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/copilot-instructions.md
+	ln -s ~/dotfiles/config-ai/.copilot/mcp-config.json ~/.copilot/mcp-config.json
+	ln -s ~/dotfiles/config-ai/.copilot/settings.json ~/.copilot/settings.json
 	set +x
     else
         echo "  Skipping..."
