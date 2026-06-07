@@ -212,6 +212,7 @@ if [ "$REPLY" == "y" ]; then
 	[ -f ~/.claude/CLAUDE.md ] && mv -i ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
 	[ -f ~/.claude/settings.json ] && mv -i ~/.claude/settings.json ~/.claude/settings.json.bak
 	[ -d ~/.claude/commands ] && mv -i ~/.claude/commands ~/.claude/commands.bak
+	[ -f ~/.gemini/GEMINI.md ] && mv -i ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.bak
 	[ -f ~/.gemini/settings.json ] && mv -i ~/.gemini/settings.json ~/.gemini/settings.json.bak
 	[ -d ~/.gemini/policies ] && mv -i ~/.gemini/policies ~/.gemini/policies.bak
 	[ -f ~/.copilot/copilot-instructions.md ] && mv -i ~/.copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md.bak
@@ -381,6 +382,7 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
 	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
 	ln -s ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
+	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.gemini/GEMINI.md
 	ln -s ~/dotfiles/config-ai/.gemini/settings.json ~/.gemini/settings.json
 	ln -s ~/dotfiles/config-ai/.gemini/policies ~/.gemini/policies
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/copilot-instructions.md
