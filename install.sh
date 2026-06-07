@@ -338,9 +338,9 @@ if [ "$REPLY" == "y" ]; then
     if [ "$REPLY" == "y" ]; then
 	echo "Copying..."
 
-        [ -d $PATH_POWERSHELL ] || mkdir -p $PATH_POWERSHELL
-
 	set -x
+	[ -d $PATH_POWERSHELL ] || mkdir -p $PATH_POWERSHELL
+
 	cp -f ~/dotfiles/config-powershell/Microsoft.PowerShell_profile.ps1 $PATH_POWERSHELL
 	set +x
     else
@@ -353,10 +353,10 @@ if [ "$REPLY" == "y" ]; then
     if [ "$REPLY" == "y" ]; then
 	echo "Copying..."
 
-        [ -d $PATH_WINDOWS_TERMINAL ] || mkdir -p $PATH_WINDOWS_TERMINAL
-        [ -d ~/bin ] || mkdir ~/bin
-
 	set -x
+	[ -d $PATH_WINDOWS_TERMINAL ] || mkdir -p $PATH_WINDOWS_TERMINAL
+	[ -d ~/bin ] || mkdir ~/bin
+
 	cp -f ~/dotfiles/config-wsl/LocalState/settings.json $PATH_WINDOWS_TERMINAL
 	ln -s ~/dotfiles/config-backup/wsl/backup.sh ~/bin/backup.sh
 	set +x
@@ -370,11 +370,11 @@ if [ "$REPLY" == "y" ]; then
     if [ "$REPLY" == "y" ]; then
 	echo "Linking..."
 
-        [ -d ~/.claude ] || mkdir -p ~/.claude
-        [ -d ~/.gemini ] || mkdir -p ~/.gemini
-        [ -d ~/.copilot ] || mkdir -p ~/.copilot
-
 	set -x
+	[ -d ~/.claude ] || mkdir -p ~/.claude
+	[ -d ~/.gemini ] || mkdir -p ~/.gemini
+	[ -d ~/.copilot ] || mkdir -p ~/.copilot
+
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
 	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
 	ln -s ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
