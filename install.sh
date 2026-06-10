@@ -88,6 +88,14 @@ if [ "$REPLY" == "y" ]; then
         echo "  Skipping..."
     fi
 
+    # Tools
+    read -n1 -p "Tools? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+        git clone git@github.com:sonofjon/config-tools.git
+    else
+        echo "  Skipping..."
+    fi
+
     # AI
     read -n1 -p "AI? (y/n): " && echo
     if [ "$REPLY" == "y" ]; then
@@ -198,6 +206,19 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	[ -f $PATH_WINDOWS_TERMINAL/settings.json ] && mv -i $PATH_WINDOWS_TERMINAL/settings.json $PATH_WINDOWS_TERMINAL/settings.json.bak
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # Tools
+    read -n1 -p "Tools? (y/n): " && echo
+    if [ "$REPLY" == "y" ]; then
+	echo "Backing up..."
+
+	set -x
+	[ -f ~/.fzf.bash ] && mv -i ~/.fzf.bash ~/.fzf.bash.bak
+	[ -f ~/.gnupg/gpg-agent.conf ] && mv -i ~/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf.bak
 	set +x
     else
         echo "  Skipping..."
@@ -362,6 +383,21 @@ if [ "$REPLY" == "y" ]; then
 
 	cp -f ~/dotfiles/config-wsl/LocalState/settings.json $PATH_WINDOWS_TERMINAL
 	ln -s ~/dotfiles/config-backup/wsl/backup.sh ~/bin/backup.sh
+	set +x
+    else
+        echo "  Skipping..."
+    fi
+
+    # Tools
+    read -n1 -p "Tools? (y/n): " && echo
+
+    if [ "$REPLY" == "y" ]; then
+	echo "Linking..."
+
+	set -x
+	[ -d ~/.gnupg ] || mkdir -p ~/.gnupg
+	ln -s ~/dotfiles/config-tools/.fzf.bash ~/.fzf.bash
+	ln -s ~/dotfiles/config-tools/.gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 	set +x
     else
         echo "  Skipping..."
