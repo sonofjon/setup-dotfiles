@@ -235,7 +235,7 @@ if [ "$REPLY" == "y" ]; then
 	[ -d ~/.claude/commands ] && mv -i ~/.claude/commands ~/.claude/commands.bak
 	[ -f ~/.codex/AGENTS.md ] && mv -i ~/.codex/AGENTS.md ~/.codex/AGENTS.md.bak
 	[ -f ~/.codex/config.toml ] && mv -i ~/.codex/config.toml ~/.codex/config.toml.bak
-	[ -f ~/.copilot/copilot-instructions.md ] && mv -i ~/.copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md.bak
+	[ -f ~/.copilot/instructions/system.instructions.md ] && mv -i ~/.copilot/instructions/system.instructions.md ~/.copilot/instructions/system.instructions.md.bak
 	[ -f ~/.copilot/mcp-config.json ] && mv -i ~/.copilot/mcp-config.json ~/.copilot/mcp-config.json.bak
 	[ -f ~/.copilot/settings.json ] && mv -i ~/.copilot/settings.json ~/.copilot/settings.json.bak
 	[ -f ~/.gemini/GEMINI.md ] && mv -i ~/.gemini/GEMINI.md ~/.gemini/GEMINI.md.bak
@@ -413,6 +413,7 @@ if [ "$REPLY" == "y" ]; then
 	[ -d ~/.claude ] || mkdir -p ~/.claude
 	[ -d ~/.codex ] || mkdir -p ~/.codex
 	[ -d ~/.copilot ] || mkdir -p ~/.copilot
+	[ -d ~/.copilot/instructions ] || mkdir -p ~/.copilot/instructions
 	[ -d ~/.gemini ] || mkdir -p ~/.gemini
 
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
@@ -420,7 +421,7 @@ if [ "$REPLY" == "y" ]; then
 	ln -sn ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.codex/AGENTS.md
 	ln -s ~/dotfiles/config-ai/.codex/config.toml ~/.codex/config.toml
-	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/copilot-instructions.md
+	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/instructions/system.instructions.md
 	ln -s ~/dotfiles/config-ai/.copilot/mcp-config.json ~/.copilot/mcp-config.json
 	ln -s ~/dotfiles/config-ai/.copilot/settings.json ~/.copilot/settings.json
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.gemini/GEMINI.md
