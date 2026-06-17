@@ -316,8 +316,8 @@ if [ "$REPLY" == "y" ]; then
 	[ ! -d ~/.emacs.d ] && mkdir ~/.emacs.d
 	ln -s ~/dotfiles/config-emacs/init.el ~/.emacs.d/init.el
 	ln -s ~/dotfiles/config-emacs/early-init.el ~/.emacs.d/early-init.el
-	ln -s ~/dotfiles/config-emacs/lisp ~/.emacs.d/lisp
-	ln -s ~/dotfiles/config-emacs/data ~/.emacs.d/data
+	ln -sn ~/dotfiles/config-emacs/lisp ~/.emacs.d/lisp
+	ln -sn ~/dotfiles/config-emacs/data ~/.emacs.d/data
 	ln -s ~/dotfiles/config-emacs/abbrev_defs ~/.emacs.d/abbrev_defs
 	ln -s ~/dotfiles/config-emacs/bookmarks ~/.emacs.d/bookmarks
 	ln -s ~/dotfiles/config-spelling/.aspell.en.prepl ~/.aspell.en.prepl
@@ -417,7 +417,7 @@ if [ "$REPLY" == "y" ]; then
 
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
 	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
-	ln -s ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
+	ln -sn ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.codex/AGENTS.md
 	ln -s ~/dotfiles/config-ai/.codex/config.toml ~/.codex/config.toml
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/copilot-instructions.md
@@ -425,7 +425,7 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/config-ai/.copilot/settings.json ~/.copilot/settings.json
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.gemini/GEMINI.md
 	ln -s ~/dotfiles/config-ai/.gemini/settings.json ~/.gemini/settings.json
-	ln -s ~/dotfiles/config-ai/.gemini/policies ~/.gemini/policies
+	ln -sn ~/dotfiles/config-ai/.gemini/policies ~/.gemini/policies
 	set +x
     else
         echo "  Skipping..."
