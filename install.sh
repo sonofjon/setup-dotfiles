@@ -233,6 +233,7 @@ if [ "$REPLY" == "y" ]; then
 	[ -f ~/.claude/CLAUDE.md ] && mv -i ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
 	[ -f ~/.claude/settings.json ] && mv -i ~/.claude/settings.json ~/.claude/settings.json.bak
 	[ -d ~/.claude/commands ] && mv -i ~/.claude/commands ~/.claude/commands.bak
+	[ -d ~/.claude/skills ] && mv -i ~/.claude/skills ~/.claude/skills.bak
 	[ -f ~/.codex/AGENTS.md ] && mv -i ~/.codex/AGENTS.md ~/.codex/AGENTS.md.bak
 	[ -f ~/.codex/config.toml ] && mv -i ~/.codex/config.toml ~/.codex/config.toml.bak
 	[ -f ~/.copilot/instructions/system.instructions.md ] && mv -i ~/.copilot/instructions/system.instructions.md ~/.copilot/instructions/system.instructions.md.bak
@@ -419,6 +420,7 @@ if [ "$REPLY" == "y" ]; then
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
 	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
 	ln -sn ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
+	ln -sn ~/dotfiles/config-ai/.claude/skills ~/.claude/skills
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.codex/AGENTS.md
 	ln -s ~/dotfiles/config-ai/.codex/config.toml ~/.codex/config.toml
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.copilot/instructions/system.instructions.md
