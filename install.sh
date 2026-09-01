@@ -139,8 +139,8 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	[ -f ~/.gitconfig ] && mv -i ~/.gitconfig ~/.gitconfig.bak
-	[ -f ~/.gitignore ] && mv -i ~/.gitignore ~/.gitignore.bak
-	[ -f ~/.gitattributes ] && mv -i ~/.gitattributes ~/.gitattributes.bak
+	[ -f ~/.config/git/ignore ] && mv -i ~/.config/git/ignore ~/.config/git/ignore.bak
+	[ -f ~/.config/git/attributes ] && mv -i ~/.config/git/attributes ~/.config/git/attributes.bak
 	set +x
     else
         echo "  Skipping..."
@@ -301,8 +301,9 @@ if [ "$REPLY" == "y" ]; then
 
 	set -x
 	ln -s ~/dotfiles/config-git/.gitconfig ~/.gitconfig
-	ln -s ~/dotfiles/config-git/.gitignore ~/.gitignore
-	ln -s ~/dotfiles/config-git/.gitattributes ~/.gitattributes
+	[ -d ~/.config/git ] || mkdir -p ~/.config/git
+	ln -s ~/dotfiles/config-git/.gitignore ~/.config/git/ignore
+	ln -s ~/dotfiles/config-git/.gitattributes ~/.config/git/attributes
 	set +x
     else
         echo "  Skipping..."
