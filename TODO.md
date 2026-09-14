@@ -1,1 +1,1 @@
-- Add support for config-vscode
+- [ ] Add support for config-vscode
