@@ -230,6 +230,7 @@ if [ "$REPLY" == "y" ]; then
 	echo "Backing up..."
 
 	set -x
+	[ -d ~/.agents/skills ] && mv -i ~/.agents/skills ~/.agents/skills.bak
 	[ -f ~/.claude/CLAUDE.md ] && mv -i ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
 	[ -f ~/.claude/settings.json ] && mv -i ~/.claude/settings.json ~/.claude/settings.json.bak
 	[ -d ~/.claude/commands ] && mv -i ~/.claude/commands ~/.claude/commands.bak
@@ -413,12 +414,15 @@ if [ "$REPLY" == "y" ]; then
 	echo "Linking..."
 
 	set -x
+	[ -d ~/.agents ] || mkdir -p ~/.agents
 	[ -d ~/.claude ] || mkdir -p ~/.claude
 	[ -d ~/.codex ] || mkdir -p ~/.codex
 	[ -d ~/.copilot ] || mkdir -p ~/.copilot
 	[ -d ~/.copilot/instructions ] || mkdir -p ~/.copilot/instructions
 	[ -d ~/.gemini ] || mkdir -p ~/.gemini
 
+	# ~/.agents/skills is also read by Copilot CLI and Codex CLI
+	ln -sn ~/dotfiles/config-ai/.agents/skills ~/.agents/skills
 	ln -s ~/dotfiles/config-ai/SYSTEM.md ~/.claude/CLAUDE.md
 	ln -s ~/dotfiles/config-ai/.claude/settings.json ~/.claude/settings.json
 	ln -sn ~/dotfiles/config-ai/.claude/commands ~/.claude/commands
